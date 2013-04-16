@@ -1,0 +1,23 @@
+// FONTS MIXINS
+// font-size; text-shadow;
+
+@mixin font-size($font-size, $context, $line-height: 1.5) {
+  font-size: $font-size / $context +em;
+  @if $line-height != 1.5 {
+    line-height: $line-height / $context;
+  }
+}
+
+@mixin text-shadow($x, $y, $size, $color, $opacity: 1) {
+  @if $color == 'black' {
+    $color: rgba(0,0,0,$opacity);
+  } @elseif $color == 'white' {
+    $color: rgba(255,255,255,$opacity);
+  }
+  
+  -webkit-text-shadow: $x $y $size $color;
+  -moz-text-shadow: $x $y $size $color;
+  -o-text-shadow: $x $y $size $color;
+  -ms-text-shadow: $x $y $size $color;
+  text-shadow: $x $y $size $color;
+}
